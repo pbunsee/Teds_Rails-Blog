@@ -9,17 +9,20 @@
 <body>
 
 <header>
-  <% if session[:user_id] %>
+  <% if current_user %>
     <%= link_to "Sign Out", '/logout', method: :delete %>
   <% else %>
   <%= form_tag '/sessions' do %>
-    <%= password_field_tag :password, nil, placeholder: "Password" %>
     <%= text_field_tag :username, nil, placeholder: "Username" %>
+    <%= password_field_tag :password, nil, placeholder: "Password" %>
     <%= submit_tag "Log In" %>
   <% end %>
 <% end %>
 
 <% if flash[:alert] %>
+  <div style="background:yellow">
+    <%= flash[:alert] %>
+  </div>
 <% end %>
 </header>
 <%= yield %>
