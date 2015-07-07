@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sample</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+  <% if session[:user_id] %>
+    <%= link_to "Sign Out", '/logout', method: :delete %>
+  <% else %>
+  <%= form_tag '/sessions' do %>
+    <%= password_field_tag :password, nil, placeholder: "Password" %>
+    <%= text_field_tag :username, nil, placeholder: "Username" %>
+    <%= submit_tag "Log In" %>
+  <% end %>
+<% end %>
+
+<% if flash[:alert] %>
+<% end %>
+</header>
+<%= yield %>
+
+</body>
+</html>
