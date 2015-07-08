@@ -1,0 +1,4 @@
+<h2>List of all posts</h2>
+ <% @post.each do |post| %>
+ <%= link_to post.id, post_path(post.id) %> <br>
+ <% end %>

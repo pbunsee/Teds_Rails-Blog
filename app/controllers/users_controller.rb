@@ -65,7 +65,7 @@ class UsersController < ApplicationController
     puts "destroy @user.username:  #{@user.username}"
     puts "destroy @user.password:  #{@user.password}"
     flash[:alert] = "User #{@user.id} - destroy action"
-    @user.destroy   
+    @user.destroy
     session[:user_id] = nil
     redirect_to users_path
   end
@@ -79,6 +79,7 @@ class UsersController < ApplicationController
     puts "update @user.password:  #{@user.password}"
     puts "users_path: #{users_path}"
     puts "user_path: #{user_path}"
+    @user.update params[:user]
     flash[:alert] = "User #{@user.id} - update action"
     redirect_to edit_user_path
   end
