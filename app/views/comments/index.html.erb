@@ -1,0 +1,4 @@
+<h2>List of all comments</h2>
+ <% @comments.each do |comment| %>
+ <%= link_to comment.body, comment_path(comment.id) %> <br>
+ <% end %>

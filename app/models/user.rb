@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
     self.updated_at = Time.now
   end
   has_many :posts
+  has_many :comments
 end

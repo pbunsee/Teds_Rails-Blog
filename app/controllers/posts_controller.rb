@@ -30,13 +30,20 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    # puts "destroy @user.firstname:  #{@user.firstname}"
-    # puts "destroy @user.lastname:  #{@user.lastname}"
-    # puts "destroy @user.email:  #{@user.email}"
-    # puts "destroy @user.username:  #{@user.username}"
-    # puts "destroy @user.password:  #{@user.password}"
     flash[:alert] = "Post #{@post.id} - destroy action"
     @post.destroy
     redirect_to posts_path
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+    flash[:alert] = "Post #{@post.id} - edited action"
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update params[:post]
+    flash[:alert] = "Post #{@post.id} - update action"
+    redirect_to edit_post_path
   end
 end

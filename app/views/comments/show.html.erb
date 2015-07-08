@@ -1,0 +1,7 @@
+<%= form_tag(@comment) do  %>
+  <%= label_tag :body %>
+  <%= text_area_tag :body, value=@comment.body %> <br>
+
+  <%= link_to "Delete Comment", comment_path(@comment.id), method: :delete %> <br>
+  <%= link_to "Edit Comment", edit_comment_path(@comment.id) %> <br>
+<% end %>
