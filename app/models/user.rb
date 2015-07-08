@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   after_initialize :defaults
 
   def defaults
-    self.created_at = Date.now
-    self.updated_at =Date.now
+    self.created_at = Time.now
+    self.updated_at = Time.now
   end
 end

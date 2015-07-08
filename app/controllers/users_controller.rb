@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    session.clear
     @users = User.all
   end
 
@@ -9,18 +10,61 @@ class UsersController < ApplicationController
   end
 
   def create
-    if params[:password] == params[:password_confirmation]
-      puts params[:firstname]
-      puts params[:lastname]
-      puts params[:email]
-      puts params[:username]
-      puts params[:password]
-      puts params[:password_confirmation]
+    if params[:user][:password] == params[:password_confirmation]
+      puts "create #{params[:user][:firstname]}"
+      puts "create #{params[:user][:lastname]}"
+      puts "create #{params[:user][:email]}"
+      puts "create #{params[:user][:username]}"
+      puts "create #{params[:user][:password]}"
+      puts "create #{params[:password_confirmation]}"
+      params.permit!
       @user = User.create params[:user]
+      session[:user_id] = @user.id
       flash[:alert] = "Created User #{@user.username}"
       redirect_to users_path
     else
       flash[:alert] = "Confirm password does not match password"
+      redirect_to users_path
     end
   end
+
+
+  def show
+    puts "show session user_id:  #{session[:user_id]}"
+    puts "show params.inspect #{params.inspect}"
+    puts "show params[:id]  #{params[:id]}"
+    @user = User.find(params[:id])
+    puts "show @user.firstname:  #{@user.firstname}"
+    puts "show @user.lastname:  #{@user.lastname}"
+    puts "show @user.email:  #{@user.email}"
+    puts "show @user.username:  #{@user.username}"
+    puts "show @user.password:  #{@user.password}"
+    flash[:alert] = "User #{@user.id} - show action"
+    # no need for this here - redirect_to users_path
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    puts "edit @user.firstname:  #{@user.firstname}"
+    puts "edit @user.lastname:  #{@user.lastname}"
+    puts "edit @user.email:  #{@user.email}"
+    puts "edit @user.username:  #{@user.username}"
+    puts "edit @user.password:  #{@user.password}"
+    flash[:alert] = "User #{@user.id} - edit action"
+    redirect_to users_path
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    puts "destroy @user.firstname:  #{@user.firstname}"
+    puts "destroy @user.lastname:  #{@user.lastname}"
+    puts "destroy @user.email:  #{@user.email}"
+    puts "destroy @user.username:  #{@user.username}"
+    puts "destroy @user.password:  #{@user.password}"
+    flash[:alert] = "User #{@user.id} - destroy action"
+    @user.destroy   
+    session[:user_id] = nil
+    redirect_to users_path
+  end
+
 end

@@ -1,7 +1,10 @@
-<h1></h1>
-<p>List of all users</p>
+<h2>List of all users</h2>
  <% @users.each do |user| %>
  <%= link_to user.username, user_path(user.id) %> <br>
  <% end %>
+
+ <p>
+ <!-- <-- link_to "Add User", user_path, method: :new -> <br> -->
+ </p>
 
  

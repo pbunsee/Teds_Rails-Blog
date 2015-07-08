@@ -1,2 +1,15 @@
-<%= link_to "Delete Account", user_path(@user.id), method: "delete" %> <br>
-<%= link_to "Edit Account", user_path(@user.id), method: "edit" %> <br>
+<%= form_tag(@user) do  %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username, value=@user.username %> <br>
+  <%= label_tag :firstname %>
+  <%= text_field_tag :firstname, value=@user.firstname %> <br>
+  <%= label_tag :lastname %>
+  <%= text_field_tag :lastname, value=@user.lastname %> <br>
+  <%= label_tag :email %>
+  <%= text_field_tag :email, value=@user.email %> <br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password, value=@user.password %> <br>
+
+  <%= link_to "Delete Account", user_path(@user.id), method: :delete %> <br>
+  <%= link_to "Edit Account", user_path(@user.id), method: :edit %> <br>
+<% end %>

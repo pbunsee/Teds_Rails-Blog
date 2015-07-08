@@ -1,13 +1,13 @@
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username, { placeholder: "Username"} %> <br>
-  <%= f.label :firstname %>
-  <%= f.text_field :firstname, { placeholder: "First Name"} %> <br>
-  <%= f.label :lastname %>
-  <%= f.text_field :lastname, { placeholder: "Last Name"} %> <br>
-  <%= f.label :email %>
-  <%= f.text_field :email, { placeholder: "E-Mail"} %> <br>
-  <%= f.label :password %>
-  <%= f.password_field :password, { placeholder: "Password"} %> <br>
-  <%= f.submit :edit %>
+<%= form_for @user do %>
+  <%= label :username %>
+  <%= text_field :username, { placeholder: "Username"} %> <br>
+  <%= label :firstname %>
+  <%= text_field :firstname, { placeholder: "First Name"} %> <br>
+  <%= label :lastname %>
+  <%= text_field :lastname, { placeholder: "Last Name"} %> <br>
+  <%= label :email %>
+  <%= text_field :email, { placeholder: "E-Mail"} %> <br>
+  <%= label :password %>
+  <%= password_field :password, { placeholder: "Password"} %> <br>
+  <%= submit :edit %>
 <% end %>
