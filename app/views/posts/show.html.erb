@@ -1,0 +1,9 @@
+<%= form_tag(@post) do  %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title, value=@post.title %> <br>
+  <%= label_tag :body %>
+  <%= text_area_tag :body, value=@post.body %> <br>
+
+  <%= link_to "Delete Post", post_path(@post.id), method: :delete %> <br>
+  <%= link_to "Edit Post", edit_post_path(@post.id) %> <br>
+<% end %>
