@@ -39,6 +39,8 @@ class UsersController < ApplicationController
     puts "show @user.email:  #{@user.email}"
     puts "show @user.username:  #{@user.username}"
     puts "show @user.password:  #{@user.password}"
+    puts "users_path: #{users_path}"
+    puts "user_path: #{user_path}"
     flash[:alert] = "User #{@user.id} - show action"
     # no need for this here - redirect_to users_path
   end
@@ -50,8 +52,9 @@ class UsersController < ApplicationController
     puts "edit @user.email:  #{@user.email}"
     puts "edit @user.username:  #{@user.username}"
     puts "edit @user.password:  #{@user.password}"
+    puts "users_path: #{users_path}"
+    puts "user_path: #{user_path}"
     flash[:alert] = "User #{@user.id} - edit action"
-    redirect_to users_path
   end
 
   def destroy
@@ -65,6 +68,19 @@ class UsersController < ApplicationController
     @user.destroy   
     session[:user_id] = nil
     redirect_to users_path
+  end
+
+  def update
+    @user = User.find(params[:id])
+    puts "update @user.firstname:  #{@user.firstname}"
+    puts "update @user.lastname:  #{@user.lastname}"
+    puts "update @user.email:  #{@user.email}"
+    puts "update @user.username:  #{@user.username}"
+    puts "update @user.password:  #{@user.password}"
+    puts "users_path: #{users_path}"
+    puts "user_path: #{user_path}"
+    flash[:alert] = "User #{@user.id} - update action"
+    redirect_to edit_user_path
   end
 
 end

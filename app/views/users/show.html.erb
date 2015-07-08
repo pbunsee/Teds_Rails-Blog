@@ -11,5 +11,5 @@
   <%= password_field_tag :password, value=@user.password %> <br>
 
   <%= link_to "Delete Account", user_path(@user.id), method: :delete %> <br>
-  <%= link_to "Edit Account", user_path(@user.id), method: :edit %> <br>
+  <%= link_to "Edit Account", edit_user_path(@user.id) %> <br>
 <% end %>
