@@ -4,5 +4,6 @@
   <%= f.text_field :title, { placeholder: "Title"} %> <br>
   <%= f.label :body, 'Post' %>
   <%= f.text_area :body, { placeholder: "Body"} %> <br>
+  <%= hidden_field :user_id, value=@post.user_id %> <br>
   <%= f.submit :edit %>
 <% end %>

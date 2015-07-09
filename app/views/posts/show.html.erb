@@ -1,10 +1,15 @@
-<%= form_tag(@post) do  %>
-  <h1>View post</h1>
-  <%= label_tag :title %>
-  <%= text_field_tag :title, value=@post.title %> <br>
-  <%= label_tag :body, 'Post' %>
-  <%= text_area_tag :body, value=@post.body %> <br>
 
-  <%= link_to "Delete Post", post_path(@post.id), method: :delete %> <br>
-  <%= link_to "Edit Post", edit_post_path(@post.id) %> <br>
+<%= render @post %>
+
+<%= form_for Comment.new do |f| %>
+  <div id="comment-body"><%= f.text_area :body %></div>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.submit :submit %>
 <% end %>
+
+<% @post.comments.each do |comment| %>
+  <p>
+    <%= comment.body %>
+  </p>
+<% end %>
+

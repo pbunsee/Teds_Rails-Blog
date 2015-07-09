@@ -2,8 +2,6 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.all
-    # @user = User.find(session[:user_id])
-    # @posts = @user.find(@user.id).posts
   end
 
   def show
@@ -11,32 +9,25 @@ class CommentsController < ApplicationController
     puts "session.inspect is :  #{session.inspect}"
     #puts "@user.inspect is :  #{@user.inspect}"
     puts "@post.inspect is :  #{@comment.inspect}"
-    #@user = User.find(session[:user_id])
-    #@posts = @user.find(@user.id).posts
     puts "params.inspect is :  #{params.inspect}"
     @comment = Comment.find params[:id]
   end
 
   def new
-    @comment = Comment.new
+    @comment = Post.find(@post.id).comment.new
   end
 
   def create
     @comment = current_user.comments.create params[:comment]
-    redirect_to post_path(@comment.post)
-  end
-  def create
-    @comment = Comment.create params[:comment]
-    # session[:post_id] = @post.id
     flash[:alert] = "Created Comment #{@comment.body}"
-    redirect_to comment_path
+    redirect_to post_path(@comment.post)
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     flash[:alert] = "Comment #{@comment.id} - destroy action"
     @comment.destroy
-    redirect_to comment_path
+    redirect_to comments_path
   end
 
   def edit

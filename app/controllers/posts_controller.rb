@@ -41,8 +41,11 @@ class PostsController < ApplicationController
   end
 
   def update
-    if Post.find(params[:id]).user_id == current_user
-       @post = Post.find(params[:id])
+    puts "Post.find(params[:id]).inspect #{Post.find(params[:id]).inspect}"
+    puts "current_user.inspect #{current_user.inspect}"
+    @post = Post.find(params[:id])
+    puts @post.inspect
+    if @post.user_id == current_user.id
        @post.update params[:post]
        flash[:alert] = "Post #{@post.id} - update action"
     else
