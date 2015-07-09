@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.form-signin {
+  padding: 5px; 
+}
+
 form{ 
   max-width: 50%; 
   min-width: 25%; 
@@ -10,10 +14,9 @@ form{
   border-radius: 4px; 
   border-style: solid; 
   color: #222222; 
-  background-color: rgb(245, 245, 240);
-  font-size: 14px; 
+  background-color: rgb(255, 245, 224);
+  font-size: 12px; 
   margin: 0px; 
-  background-color: #FFFFFF; 
   padding: 20px; 
 } 
 
@@ -31,6 +34,7 @@ form input[type=radio], input[type=checkbox]{
 
 form div{ 
   display: block; 
+  background-color: rgb(255, 235, 194);
 } 
 
 form input, form textarea, form select{ 
@@ -40,6 +44,7 @@ form input, form textarea, form select{
   border-radius: 2px; 
   padding: 7px; 
   width: 100%; 
+  font-size: 14px;
 } 
 
 form h1{ 
@@ -65,9 +70,15 @@ form input[type=submit]{
   background-color: #CCCCCC; 
   color: #222222; 
   margin-top: 10px;
+  font-size: 14px;
 } 
 
 field{ 
   margin-bottom: 8px; 
 } 
+
+.form-signin {
+  background-color: yellow;
+  color: red;
+}
 

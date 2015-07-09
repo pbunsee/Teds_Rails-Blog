@@ -8,8 +8,6 @@
   <%= text_field_tag :lastname, value=@user.lastname %> <br>
   <%= label_tag :email %>
   <%= text_field_tag :email, value=@user.email %> <br>
-  <%= label_tag :password %>
-  <%= password_field_tag :password, value=@user.password %> <br>
 
   <%= link_to "Delete Account", user_path(@user.id), method: :delete %> <br>
   <%= link_to "Edit Account", edit_user_path(@user.id) %> <br>

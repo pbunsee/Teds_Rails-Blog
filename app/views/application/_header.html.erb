@@ -1,24 +1,29 @@
 
 <header>
+   <div id="outerNav">
+   <% if !current_user %>
+     <div id="signup">
+       <%= link_to "Sign Up", new_user_path, method: :get %>
+     </div>
+   <% end %>
+
    <% if current_user %>
      <%= link_to "Sign Out", '/logout', method: :delete %>
    <% else %>
       <div id="doLogin">
-      <%= form_tag '/sessions' do %>
-        <%= text_field_tag :username, nil, placeholder: "Username" %>
-        <%= password_field_tag :password, nil, placeholder: "Password" %>
-        <%= submit_tag "Log In" %>
-      <% end %>
+        <%= form_for('/sessions', :html => {:class => 'form-signin'}) do |f| %>
+          <span><%= f.text_field :username, placeholder: "Username" %></span> 
+          <span><%= f.password_field :password, placeholder: "Password" %></span>
+          <%= f.submit "Log In" %>
+        <% end %>
       </div>
    <% end %> 
 
-   <% if !current_user %>
-     <%= link_to "Sign Up", new_user_path, method: :get %>
-   <% end %>
 
    <% if flash[:alert] %>
      <div style="background:lightyellow">
        <%= flash[:alert] %>
      </div>
    <% end %>
+   </div>
 </header>
