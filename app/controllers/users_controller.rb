@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    session.clear
     @users = User.all
   end
 
@@ -19,15 +18,13 @@ class UsersController < ApplicationController
       puts "create #{params[:password_confirmation]}"
       params.permit!
       @user = User.create params[:user]
-      session[:user_id] = @user.id
       flash[:alert] = "Created User #{@user.username}"
-      redirect_to users_path
+      redirect_to posts_path
     else
-      flash[:alert] = "Confirm password does not match password"
-      redirect_to users_path
+      flash[:alert] = "Confirmation password does not match password"
+      redirect_to new_post_path
     end
   end
-
 
   def show
     puts "show session user_id:  #{session[:user_id]}"
@@ -42,7 +39,6 @@ class UsersController < ApplicationController
     puts "users_path: #{users_path}"
     puts "user_path: #{user_path}"
     flash[:alert] = "User #{@user.id} - show action"
-    # no need for this here - redirect_to users_path
   end
 
   def edit
@@ -66,7 +62,7 @@ class UsersController < ApplicationController
     puts "destroy @user.password:  #{@user.password}"
     flash[:alert] = "User #{@user.id} - destroy action"
     @user.destroy
-    session[:user_id] = nil
+    #session[:user_id] = nil  - allow the user to de-activate their account, hard delete must only be for admin
     redirect_to users_path
   end
 

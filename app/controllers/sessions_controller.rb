@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:alert] = "See You Next Time!"
+    flash[:alert] = "Logged out. See You Next Time!"
     redirect_to root_path
   end
 
@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
         flash[:alert] = "Incorrect Credentials!"
         redirect_to root_path
       end
-   end
+    end
   end
+
 end

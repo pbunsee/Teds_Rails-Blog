@@ -22,6 +22,10 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @comment = current_user.comments.create params[:comment]
+    redirect_to post_path(@comment.post)
+  end
+  def create
     @comment = Comment.create params[:comment]
     # session[:post_id] = @post.id
     flash[:alert] = "Created Comment #{@comment.body}"
