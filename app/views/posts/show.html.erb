@@ -9,7 +9,12 @@
 
 <% @post.comments.each do |comment| %>
   <p>
-    <%= comment.body %>
+    <div id="comment-item"><%= comment.body %></div>
   </p>
+  <p class='comment-attribution'>
+    Posted by <%= comment.user.username %>
+    at <%= comment.created_at %>
+
+   </p>
 <% end %>
 

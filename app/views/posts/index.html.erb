@@ -3,3 +3,7 @@
  <%= link_to post.title, post_path(post.id) %> <br>
  <div id="post-body"><%= post.body %> <br></div>
  <% end %>
+
+<div>
+   <%= link_to "Create new post", new_post_path %> <br>
+</div>

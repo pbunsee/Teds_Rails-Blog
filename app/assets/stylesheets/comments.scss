@@ -73,12 +73,33 @@ field{
 
 #comment-body {
   width: 100%;
-  height: 40px;
+  height: 70px;
 }
 
 #comment-body textarea {
   position: relative;
   width: 100%;
   height: 100%;
+  background: rgb(220, 230, 231);
+  border: 1px rgb(89,89,89) solid;
+  opacity: 0.94;
+}
+
+#new_comment {
+  margin-left: 25%;
+  padding: 15px;
+}
+
+#comment-item {
+  margin: 10px;
+  padding: 15px;
+  background: rgb(220, 230, 231);
+}
+
+.comment-attribution {
+  font-size: 0.5em;
+  background: rgb(220, 230, 231);
+  border-bottom: dashed;
+  border-bottom-width: 1px;
 }
 
