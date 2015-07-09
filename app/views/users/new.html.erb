@@ -1,4 +1,5 @@
 <%= form_for @user do |f| %>
+  <h1>Create new user</h1>
   <%= f.label :username %>
   <%= f.text_field :username, { placeholder: "Username"} %> <br>
   <%= f.label :firstname %>
@@ -11,5 +12,5 @@
   <%= f.password_field :password, { placeholder: "Password"} %> <br>
   <%= label_tag :password_confirmation, 'Password Confirmation' %>
   <%= password_field_tag :password_confirmation, nil, { placeholder: "Confirm Password"} %> <br>
-  <%= f.submit :create %>
+  <%= f.submit :Create %>
 <% end %>
