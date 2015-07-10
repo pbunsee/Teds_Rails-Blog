@@ -8,7 +8,7 @@
 <% end %>
 
 <article>
-  <% @post.comments.each do |comment| %>
+  <% @post.comments.reverse.each do |comment| %>
     <p class='comment-item'>
       <%= comment.body %>
     </p>

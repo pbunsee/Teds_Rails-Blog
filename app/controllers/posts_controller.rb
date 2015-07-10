@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.all.reverse
   end
 
   def show
@@ -21,15 +21,15 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.create params[:post]
-    flash[:alert] = "Successfully created post" 
+    flash[:notice] = "Successfully created post" 
     redirect_to posts_path
   end
 
   def destroy
     # Provide this option to admin only - add checks in
     @post = Post.find(params[:id])
-    flash[:alert] = "Post #{@post.id} - destroy action"
     @post.destroy
+    flash[:alert] = "Removed Post"
     redirect_to posts_path
   end
 
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
     puts @post.inspect
     if @post.user_id == current_user.id
        @post.update params[:post]
-       flash[:alert] = "Post #{@post.id} - update action"
+       flash[:alert] = "Updated Post"
     else
        flash[:alert] = "You can only edit your own posts"
     end
