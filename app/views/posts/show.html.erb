@@ -7,14 +7,15 @@
   <%= f.submit :submit %>
 <% end %>
 
-<% @post.comments.each do |comment| %>
-  <p>
-    <div id="comment-item"><%= comment.body %></div>
-  </p>
-  <p class='comment-attribution'>
-    Posted by <%= comment.user.username %>
-    at <%= comment.created_at %>
-
-   </p>
-<% end %>
+<article>
+  <% @post.comments.each do |comment| %>
+    <p class='comment-item'>
+      <%= comment.body %>
+    </p>
+    <p class='comment-attribution'>
+      Posted by <%= comment.user.username %>
+      at <%= comment.created_at %>
+     </p>
+  <% end %>
+</article>
 

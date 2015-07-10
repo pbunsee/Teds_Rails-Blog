@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.create params[:post]
-    flash[:alert] = "Created Post #{@post.title}"
+    flash[:alert] = "Successfully created post" 
     redirect_to posts_path
   end
 

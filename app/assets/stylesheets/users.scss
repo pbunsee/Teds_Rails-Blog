@@ -1,59 +1,37 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-/* line 5, /Users/praneshabunsee/Documents/NYCDA/Projects/Rails-Blog/app/assets/stylesheets/users.scss */
-.form-signin {
-  padding: 5px;
-}
 
-/* line 9, /Users/praneshabunsee/Documents/NYCDA/Projects/Rails-Blog/app/assets/stylesheets/users.scss */
-form {
+.form-signin {
   max-width: 50%;
   min-width: 25%;
   border-width: 2px;
   border-color: #CCCCCC;
-  border-radius: 4px;
   border-style: solid;
   color: #222222;
-  background-color: #fff5e0;
-  font-size: 12px;
+  background-color: #f5f5f0;
+  font-size: 10px;
   margin: 0px;
-  padding: 3px;
+  background-color: #FFFFFF;
 }
 
-/* line 23, /Users/praneshabunsee/Documents/NYCDA/Projects/Rails-Blog/app/assets/stylesheets/users.scss */
-form label {
+.form-signin label {
   color: #222222;
   font-size: 18px;
   display: block;
   margin-top: 15px;
 }
 
-/* line 30, /Users/praneshabunsee/Documents/NYCDA/Projects/Rails-Blog/app/assets/stylesheets/users.scss */
-form input[type=radio], input[type=checkbox] {
+.form-signin input[type=radio], input[type=checkbox] {
   margin: 10px;
   width: 13px;
 }
 
-/* line 35, /Users/praneshabunsee/Documents/NYCDA/Projects/Rails-Blog/app/assets/stylesheets/users.scss */
-form div {
+.form-signin div {
   display: block;
-  background-color: #ffebc2;
 }
 
-/* line 40, /Users/praneshabunsee/Documents/NYCDA/Projects/Rails-Blog/app/assets/stylesheets/users.scss */
-form input, form textarea, form select {
-  border-width: 1px;
-  border-style: solid;
-  border-color: #666666;
-  border-radius: 2px;
-  padding: 7px;
-  width: 20%;
-  font-size: 14px;
-}
-
-/* line 50, /Users/praneshabunsee/Documents/NYCDA/Projects/Rails-Blog/app/assets/stylesheets/users.scss */
-form h1 {
+.form-signin h1 {
   font-size: 45px;
   color: #607A75;
   padding: 0px;
@@ -66,39 +44,22 @@ form h1 {
   background-color: #FFFFFF;
 }
 
-/* line 63, /Users/praneshabunsee/Documents/NYCDA/Projects/Rails-Blog/app/assets/stylesheets/users.scss */
-form textarea {
+.form-signin textarea {
   height: 250px;
   width: 100%;
 }
 
-/* line 68, /Users/praneshabunsee/Documents/NYCDA/Projects/Rails-Blog/app/assets/stylesheets/users.scss */
-form input[type=submit] {
-  width: 20%;
+.form-signin input[type=submit] {
   background-color: #CCCCCC;
   color: #222222;
-  margin-top: 0px;
-  font-size: 14px;
+  margin-top: 10px;
 }
 
-/* line 76, /Users/praneshabunsee/Documents/NYCDA/Projects/Rails-Blog/app/assets/stylesheets/users.scss */
-field {
+.form-signin field {
   margin-bottom: 8px;
 }
 
-/* line 80, /Users/praneshabunsee/Documents/NYCDA/Projects/Rails-Blog/app/assets/stylesheets/users.scss */
-.form-signin {
-  background-color: #FFFFFF;
-  color: red;
-}
-
-/*
-
-.form-signin {
-  padding: 5px; 
-}
-
-form{ 
+#new_user form{ 
   max-width: 50%; 
   min-width: 25%; 
   border-width: 2px; 
@@ -106,40 +67,39 @@ form{
   border-radius: 4px; 
   border-style: solid; 
   color: #222222; 
-  background-color: rgb(255, 245, 224);
-  font-size: 12px; 
+  background-color: rgb(245, 245, 240);
+  font-size: 14px; 
   margin: 0px; 
+  background-color: #FFFFFF; 
   padding: 20px; 
 } 
 
-form label{ 
+#new_user form label{ 
   color: #222222; 
   font-size: 18px; 
   display: block; 
   margin-top: 15px;
 } 
 
-form input[type=radio], input[type=checkbox]{ 
+#new_user form input[type=radio], input[type=checkbox]{ 
   margin: 10px; 
   width: 13px; 
 } 
 
-form div{ 
+#new_user form div{ 
   display: block; 
-  background-color: rgb(255, 235, 194);
 } 
 
-form input, form textarea, form select{ 
+#new_user form input, form textarea, form select{ 
   border-width: 1px; 
   border-style: solid; 
   border-color: #666666; 
   border-radius: 2px; 
   padding: 7px; 
   width: 100%; 
-  font-size: 14px;
 } 
 
-form h1{ 
+#new_user form h1{ 
   font-size: 45px; 
   color: #607A75; 
   padding: 0px; 
@@ -149,28 +109,24 @@ form h1{
   border-bottom-color: #CCCCCC; 
   border-bottom-width: 2px; 
   border-radius: 0px; 
-  background-color: #FFFFFF; 
-} 
 
-form textarea{ 
-  height: 250px; 
-  width: 100%; 
-} 
-
-form input[type=submit]{ 
-  width: 100%; 
-  background-color: #CCCCCC; 
-  color: #222222; 
-  margin-top: 10px;
-  font-size: 14px;
-} 
-
-field{ 
-  margin-bottom: 8px; 
-} 
-
-.form-signin {
-  background-color: #FFFFFF; 
-  color: red;
+  background-color: #FFFFFF;
 }
-*/
+
+#new_user form textarea {
+  height: 250px;
+  width: 100%;
+}
+
+#new_user form input[type=submit] {
+  width: 20%;
+  background-color: #CCCCCC;
+  color: #222222;
+  margin-top: 0px;
+  font-size: 14px;
+}
+
+#new_user field {
+  margin-bottom: 8px;
+}
+
