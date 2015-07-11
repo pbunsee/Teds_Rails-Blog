@@ -11,7 +11,7 @@
      <%= link_to "Sign Out", '/logout', method: :delete %>
    <% else %>
       <div id="doLogin">
-        <%= form_tag('/sessions', :html => {:class => 'form-signin'}) do %>
+        <%= form_tag('/sessions', :html => {:id => 'form-signin', :class => 'form-signin'}) do %>
           <span><%= text_field_tag :username, nil, placeholder: "Username" %></span> 
           <span><%= password_field_tag :password, nil, placeholder: "Password" %></span>
           <%= submit_tag "Log In" %>
@@ -20,6 +20,11 @@
    <% end %> 
 
 
+   <% if flash[:notice] %>
+     <div id="flash_msg">
+       <%= flash[:notice] %>
+     </div>
+   <% end %>
    <% if flash[:alert] %>
      <div id="flash_msg">
        <%= flash[:alert] %>

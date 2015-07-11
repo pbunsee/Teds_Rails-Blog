@@ -16,8 +16,8 @@ class UsersController < ApplicationController
       puts "create #{params[:user][:username]}"
       puts "create #{params[:user][:password]}"
       puts "create #{params[:password_confirmation]}"
-      params.permit!
       @user = User.create params[:user]
+      session[:user_id] = @user.id
       flash[:alert] = "Created User #{@user.username}"
       redirect_to posts_path
     else
