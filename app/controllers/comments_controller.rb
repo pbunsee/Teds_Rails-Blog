@@ -16,8 +16,12 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = current_user.comments.create params[:comment]
-    flash[:notice] = "Saved Comment"
+    if current_user
+      @comment = current_user.comments.create params[:comment]
+      flash[:notice] = "Saved Comment"
+    else
+      flash[:alert] = "Please login to add comment"
+    end
     redirect_to post_path(@comment.post)
   end
 

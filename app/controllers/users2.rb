@@ -10,28 +10,19 @@ class UsersController < ApplicationController
 
   def create
     if params[:user][:password] == params[:password_confirmation]
-      #puts "create #{params[:user][:firstname]}"
-      #puts "create #{params[:user][:lastname]}"
-      #puts "create #{params[:user][:email]}"
-      puts "create params[:user][:username]  #{params[:user][:username]}"
-      puts "create params[:user][:username]  #{params[:user][:password]}"
-      puts "create params[:password_confirmation]  #{params[:password_confirmation]}"
+      puts "create #{params[:user][:firstname]}"
+      puts "create #{params[:user][:lastname]}"
+      puts "create #{params[:user][:email]}"
+      puts "create #{params[:user][:username]}"
+      puts "create #{params[:user][:password]}"
+      puts "create #{params[:password_confirmation]}"
       @user = User.create params[:user]
       session[:user_id] = @user.id
-      puts "session[:user_id] value is: #{session[:user_id]}"
-      puts "@user.id value is: #{@user.id}"
-      user_hash = {:user_id => @user.id}
-      puts "user_hash user_id value is : #{user_hash[:user_id]}"
-      puts "user_hash value is : #{user_hash}"
-      @user.build_profile
-      @profile = Profile.create(user_hash)
-      #need to change this to something like current_user.profile.create
-      puts " ahahahahahahahaha Profile.find(@profile.id) #{Profile.find(@profile.id)}"
       flash[:alert] = "Created User #{@user.username}"
-      redirect_to edit_user_profile_path(current_user, @profile)
+      redirect_to posts_path
     else
       flash[:alert] = "Confirmation password does not match password"
-      redirect_to new_user_path
+      redirect_to new_post_path
     end
   end
 
@@ -40,11 +31,9 @@ class UsersController < ApplicationController
     puts "show params.inspect #{params.inspect}"
     puts "show params[:id]  #{params[:id]}"
     @user = User.find(params[:id])
-    @profile = User.find(@user.id).profile
-    puts "show profile params.inspect #{@profile.inspect}" 
-    puts "show profile @profile.firstname:  #{@profile.firstname}"
-    puts "show profile @profile.lastname:  #{@profile.lastname}"
-    puts "show profile @profile.email:  #{@profile.email}"
+    puts "show @user.firstname:  #{@user.firstname}"
+    puts "show @user.lastname:  #{@user.lastname}"
+    puts "show @user.email:  #{@user.email}"
     puts "show @user.username:  #{@user.username}"
     puts "show @user.password:  #{@user.password}"
     puts "users_path: #{users_path}"
@@ -54,9 +43,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    #puts "edit @user.firstname:  #{@user.firstname}"
-    #puts "edit @user.lastname:  #{@user.lastname}"
-    #puts "edit @user.email:  #{@user.email}"
+    puts "edit @user.firstname:  #{@user.firstname}"
+    puts "edit @user.lastname:  #{@user.lastname}"
+    puts "edit @user.email:  #{@user.email}"
     puts "edit @user.username:  #{@user.username}"
     puts "edit @user.password:  #{@user.password}"
     puts "users_path: #{users_path}"
@@ -66,9 +55,9 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    #puts "destroy @user.firstname:  #{@user.firstname}"
-    #puts "destroy @user.lastname:  #{@user.lastname}"
-    #puts "destroy @user.email:  #{@user.email}"
+    puts "destroy @user.firstname:  #{@user.firstname}"
+    puts "destroy @user.lastname:  #{@user.lastname}"
+    puts "destroy @user.email:  #{@user.email}"
     puts "destroy @user.username:  #{@user.username}"
     puts "destroy @user.password:  #{@user.password}"
     flash[:alert] = "User #{@user.id} - destroy action"
@@ -79,9 +68,9 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    #puts "update @user.firstname:  #{@user.firstname}"
-    #puts "update @user.lastname:  #{@user.lastname}"
-    #puts "update @user.email:  #{@user.email}"
+    puts "update @user.firstname:  #{@user.firstname}"
+    puts "update @user.lastname:  #{@user.lastname}"
+    puts "update @user.email:  #{@user.email}"
     puts "update @user.username:  #{@user.username}"
     puts "update @user.password:  #{@user.password}"
     puts "users_path: #{users_path}"

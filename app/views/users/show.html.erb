@@ -2,12 +2,6 @@
   <h1>User Details</h1>
   <%= f.label :username %>
   <%= f.text_field :username, :value => @user.username, :readonly => true %> <br>
-  <%= f.label :firstname %>
-  <%= f.text_field :firstname, :value => @user.firstname, :readonly => true %> <br>
-  <%= f.label :lastname %>
-  <%= f.text_field :lastname, :value => @user.lastname, :readonly => true %> <br>
-  <%= f.label :email %>
-  <%= f.text_field :email, :value => @user.email, :readonly => true %> <br>
 
   <span id="button1" class="custom_button">
     <%= link_to "Delete Account", user_path(@user.id), method: :delete %> 
@@ -17,3 +11,6 @@
   </span> 
   <br>
 <% end %>
+
+
+

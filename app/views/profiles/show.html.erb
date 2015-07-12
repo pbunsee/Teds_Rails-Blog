@@ -1,0 +1,5 @@
+<p> Show Profile </p>
+<%= render @profile %>
+
+<p> Current Profile Picture </p>
+<%= image_tag @profile.photo.url(:thumb) %>

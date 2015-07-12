@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708211901) do
+ActiveRecord::Schema.define(version: 20150711170619) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -29,14 +29,25 @@ ActiveRecord::Schema.define(version: 20150708211901) do
     t.integer  "user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string   "firstname",          limit: 80
+    t.string   "lastname",           limit: 80
+    t.string   "email",              limit: 100
+    t.boolean  "activated"
+    t.integer  "user_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "firstname",  limit: 50
-    t.string   "lastname",   limit: 50
-    t.string   "email",      limit: 50
   end
 
 end

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root 'users#index'
   resources :sessions
-  resources :users
+  resources :users do
+    resources :profiles
+  end
   resources :posts
   resources :comments
   delete '/logout' => 'sessions#destroy'
