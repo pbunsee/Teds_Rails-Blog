@@ -2,9 +2,10 @@
    <h3>
     <span class='list-post-title'><%= link_to post.title, post_path(post) %></span>
    </h3>
+
    <p class='list-post-body'>
      <% if local_assigns.fetch(:truncate_post, false) %>
-       <%= truncate post.body, length: 200 %>
+       <%= truncate(post.body, length: 50, separator: ' ') %>
      <% else %>
        <%= post.body %>
      <% end %>

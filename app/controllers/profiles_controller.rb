@@ -23,8 +23,22 @@ class ProfilesController < ApplicationController
   def update
     puts "WHAT ARE THE PARAMS INCOMING - params[:id]: #{params[:id]} "
     puts "WHAT ARE THE PARAMS INCOMING - params[:profile]: #{params[:profile]} "
+
     @profile = Profile.find(params[:id])
+
     puts "UPDATE @profile.inspect #{@profile.inspect}"
+
+    #pull the image from the specified url and set the user's avatar
+    if params[:photo_url].length > 0
+      puts " length of url is > 0 params[:photo_url] :  #{params[:photo_url]}"
+    else
+      @profile.photo(params[:photo_url])
+      puts " url length is <= 0 params[:photo_url] :  #{params[:photo_url]}"
+    end
+
+    puts "@profile.inspect after the photo_url :    #{@profile.inspect}"
+    puts "params[:profile] after the photo_url :    #{params[:profile]}"
+
     @profile.update params[:profile]
     redirect_to edit_user_profile_path
   end

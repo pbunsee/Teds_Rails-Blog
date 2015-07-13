@@ -43,6 +43,7 @@
     <%= f.date_field :updated_at, :readonly => true %> <br><br>
   
     <span id="button_fileupload"><%= f.file_field :photo %></span>
+    <span id="from_url">Provide a URL for Your Avatar: <%= text_field_tag 'photo_url' %></span>
     <div class="actions">
       <span id="button4" class="custom_button"><%= f.submit :Update %></span>
     </div>
