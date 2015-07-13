@@ -9,10 +9,11 @@ main {
 }
 
 .post {
-  margin: 10px;
+  margin-left: 10%;
   padding: 12px;
   color: rgb(0, 0, 0);
   background: rgba(255, 255, 255, 0.7);
+  width: 50%;
 }
 
 #content-layout {
@@ -49,11 +50,23 @@ main {
 
 .list-post-attribution {
   font-size: 0.5em;
+  border-bottom: dashed;
+  border-bottom-width: 1px;
+  padding: 10px;
 }
 
-textarea {
-  width: 850px;
-  height: 180px;
+.buttons_div {
+  background: rgba(255, 255, 255, 0.7);
+  width: 50%;
+}
+
+#new_post {
+  margin-left: 25%;
+}
+
+#new_post textarea {
+  width: 50%;
+  height: 70px;
 }
 
 #post-body {
@@ -62,10 +75,10 @@ textarea {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 1%;
+  border: 1px;
 }
 
 #post_title {
-  width: 550px;
+  width: 50%;
   margin-bottom: 10px;
-  margin-left: 1%;
 }

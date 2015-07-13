@@ -1,8 +1,13 @@
-<%= form_for @post do |f| %>
+<%= form_for(@post, :html => {:id => 'new_post', :class => 'new_post'}) do |f| %>
   <h1>Create new post</h1>
-  <%= f.label :title %>
+  <%= f.label :title %><br>
   <%= f.text_field :title, { placeholder: "Title"} %> <br>
-  <%= f.label :body, 'Post' %>
+  <%= f.label :body, 'Post' %><br>
   <%= f.text_area :body, { placeholder: "Body"} %> <br>
-  <%= f.submit :create %>
+  <div class="buttons_div">
+    <span id="button_fileupload">       Upload photo <%= f.file_field :photo %></span><br><br>
+    OR <br> <br>
+    <span id="from_url">Provide an image URL: <%= text_field_tag 'photo_url' %></span><br><br>
+    <%= f.submit :create %>
+  </div>
 <% end %>

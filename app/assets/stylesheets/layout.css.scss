@@ -181,6 +181,32 @@ main {
   float: right;
 }
  
+#menu_option_4 {
+  float: left;
+  padding-right: 20px;
+}
+ 
+#menu_option_4 a:active {
+  color: rgb(255, 255, 255);
+}
+ 
+#menu_option_4 a:link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+#menu_option_4 a:hover {
+  color: rgb(51, 204, 51);
+}
+ 
+#menu_option_4 a:visited{
+  color: rgb(51, 204, 51);
+}
+
+#menu_option_4 {
+  float: right;
+}
+ 
 #user_options {
   float: right;
 }

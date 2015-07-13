@@ -1,8 +1,12 @@
+<%= image_tag @post.photo.url(:medium) %>
+
 <%= form_for @post do |f| %>
   <h1>Create new post</h1>
   <%= f.label :title %>
   <%= f.text_field :title, { placeholder: "Title"} %> <br>
   <%= f.label :body, 'Post' %>
   <%= f.text_area :body, { placeholder: "Create a new post"} %> <br>
+  <span id="button_fileupload"><%= f.file_field :photo %></span>
+  <span id="from_url">Provide an image URL: <%= text_field_tag 'photo_url' %></span>
   <%= f.submit :create %>
 <% end %>

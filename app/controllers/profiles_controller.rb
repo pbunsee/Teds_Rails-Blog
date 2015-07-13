@@ -38,8 +38,16 @@ class ProfilesController < ApplicationController
 
     puts "@profile.inspect after the photo_url :    #{@profile.inspect}"
     puts "params[:profile] after the photo_url :    #{params[:profile]}"
+    
+    #fname = params[:profile][:firstname]
+    #lname = params[:profile][:lastname]
+    #email = params[:profile][:email]
+    #pic = params[:photo_url]
+    #new_profile_hash = {:firstname => fname, :lastname => lname, :email => email, :photo => pic}
+    #@profile.update new_profile_hash
 
     @profile.update params[:profile]
+
     redirect_to edit_user_profile_path
   end
 

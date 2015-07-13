@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #new_comment input[type=submit] { 
-  margin-left: 1%;
   -webkit-border-radius: 8;
   -moz-border-radius: 8;
   border-radius: 8px;
@@ -27,7 +26,7 @@
 #comment-body {
   width: 100%;
   height: 70px;
-  padding: 10px;
+  padding: 0px;
 }
 
 #comment-body textarea {
@@ -40,29 +39,28 @@
 }
 
 #new_comment {
-  margin-left: 2%;
-  padding: 15px;
-  width: 90%;
+  margin-left: 10%;
+  width: 50%;
 }
 
 .comment-item {
-  margin-left: 2%;
+  margin-left: 10%;
   font-size: 0.8em;
   margin-top: 10px;
   padding-top: 15px;
   background: rgb(220, 230, 231);
   padding: 10px;
   word-wrap: break-word;
-  width: 95%;
+  width: 50%;
 }
 
 .comment-attribution {
-  margin-left: 2%;
+  margin-left: 10%;
   font-size: 0.5em;
   background: rgb(220, 230, 231);
   border-bottom: dashed;
   border-bottom-width: 1px;
   padding: 10px;
-  width: 95%;
+  width: 50%;
 }
 

@@ -1,18 +1,24 @@
 <article class="post">
-   <h3>
-    <span class='list-post-title'><%= link_to post.title, post_path(post) %></span>
-   </h3>
-
-   <p class='list-post-body'>
-     <% if local_assigns.fetch(:truncate_post, false) %>
-       <%= truncate(post.body, length: 50, separator: ' ') %>
-     <% else %>
-       <%= post.body %>
+   <div id="lhs">
+     <h3>
+      <span class='list-post-title'><%= link_to post.title, post_path(post) %></span>
+     </h3>
+  
+     <% if post.photo.present? %>
+       <%= image_tag post.photo.url(:medium) %>
      <% end %>
-   </p>
-   <p class='list-post-attribution'>
-     Posted by <%= post.user.username %>
-     at <%= post.created_at %>
-
-   </p>
+   </div>
+   <div id="rhs">
+     <p class='list-post-body'>
+       <% if local_assigns.fetch(:truncate_post, false) %>
+         <%= truncate(post.body, length: 50, separator: ' ') %>
+       <% else %>
+         <%= post.body %>
+       <% end %>
+     </p>
+     <p class='list-post-attribution'>
+       Posted by <%= post.user.username %>
+       at <%= post.created_at %>
+     </p>
+   </div>
 </article>
