@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+   session.clear
     @users = User.all
   end
 
@@ -33,6 +34,7 @@ class UsersController < ApplicationController
   end
 
   def show
+   session.clear
     puts "show session user_id:  #{session[:user_id]}"
     puts "show params.inspect #{params.inspect}"
     puts "show params[:id]  #{params[:id]}"

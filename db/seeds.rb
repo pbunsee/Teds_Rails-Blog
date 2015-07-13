@@ -12,7 +12,7 @@
   User.create(username: 'tommy', password: 'test')
   User.create(username: 'treehouse', password: 'test')
   User.create(username: 'ericT', password: 'test')
-  User.create(username: 'rhone_ert', password: 'test')
+  User.create(username: 'rhonert', password: 'test')
   User.create(username: 'herbie_mit', password: 'test')
 
   Profile.create(firstname: 'Jim', lastname: 'Bob', email: 'test@test.com', user_id: 1, activated: true)
