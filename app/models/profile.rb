@@ -7,7 +7,7 @@ class Profile < ActiveRecord::Base
   has_attached_file :photo,
                     :styles => {:sprite => "20x20#", :thumb => "70x70#", :small => "100x100>"},
                     :url => "/assets/:id/:style/:basename.:extension",
-                    :default_url => "dumbbell.jpg",
+                    :default_url => ":style/dumbbell.jpg",
                     :path => ":rails_root/public/assets/:id/:style/:basename.:extension"
 
   validates_attachment_size :photo, :less_than => 5.megabytes

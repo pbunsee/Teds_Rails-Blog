@@ -16,9 +16,11 @@
            <%= link_to "Sign Up", new_user_path, method: :get %>
          </span>
        <% else %>
+          <div id="sprite">
+            <span><%= image_tag current_user.profile.photo.url(:sprite) %></span>
+          </div>
           <div id="menu_options">
             <span id="menu_option_1">
-              <%= image_tag current_user.profile.photo.url(:sprite) %>
               <%= link_to current_user.username, posts_path %>    
             </span>
             <span id="menu_option_2">

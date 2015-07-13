@@ -2,12 +2,9 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-#icon {
-  /*
-  width: 90px;
-  height: 60px;
-  background-image: url("/assets/icon_landing.png");
-  */
+#sprite {
+  float: left;
+  padding: 20px 5px 20px 10px;
 }
 
 .custom_button a {
