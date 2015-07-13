@@ -15,7 +15,6 @@
   User.create(username: 'rhone_ert', password: 'test')
   User.create(username: 'herbie_mit', password: 'test')
 
-  #Profile.create(firstname: 'Jim', lastname: 'Bob', email: 'test@test.com', user_id: 1, activated: true, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil )
   Profile.create(firstname: 'Jim', lastname: 'Bob', email: 'test@test.com', user_id: 1, activated: true)
   Profile.create(firstname: 'Bob', lastname: 'Smith', email: 'test@test.com', user_id: 2, activated: true)
   Profile.create(firstname: 'Tommy', lastname: 'Lee Jones', email: 'test@test.com', user_id: 3, activated: true)

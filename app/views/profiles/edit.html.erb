@@ -1,39 +1,53 @@
-<%= form_for([@user, @profile], :url => user_profile_path(@profile.id, @profile.user_id), :html => { :multipart => true, :method => "patch" }) do |f| %>
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+<div class="lhs">
+  <p> Current Profile Picture </p>
+  <%= image_tag @profile.photo.url(:thumb) %>
+</div>
 
-      <ul>
-      <% @profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="rhs">
+  <%= form_for([@user, @profile], :url => user_profile_path(@profile.id, @profile.user_id), :html => { :multipart => true, :method => "patch" }) do |f| %>
+    <% if @profile.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+        <ul>
+        <% @profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <h1> Edit User Profile </h1>
+
+    <% f.fields_for :user do |u| %>  
+      <%= u.label :username %>
+      <%= u.text_field :username, { placeholder: "Username"} %> <br>
+    <% end %> 
+
+    <% if :activated %> <br>
+      <span>Account is enabled  </span>
+      <span id="button5" class="custom_button"><%= link_to 'Disable Account', user_profile_path(@profile.id, @profile.user_id) %></span> 
+    <% else %> 
+      <span id="button6" class="custom_button"><%= link_to 'Enable Account', user_profile_path(@profile.id, @profile.user_id) %></span> 
+    <% end %> 
+
+    <%= f.label :firstname %>
+    <%= f.text_field :firstname, { placeholder: "First Name"} %> <br>
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname, { placeholder: "Last Name"} %> <br>
+    <%= f.label :email %>
+    <%= f.text_field :email, { placeholder: "Email"} %> <br>
+    <%= f.label :created_at %>
+    <%= f.date_field :created_at, :readonly => true %> 
+    <%= f.label :updated_at %>
+    <%= f.date_field :updated_at, :readonly => true %> <br><br>
+  
+    <span id="button_fileupload"><%= f.file_field :photo %></span>
+    <div class="actions">
+      <span id="button4" class="custom_button"><%= f.submit :Update %></span>
     </div>
   <% end %>
-
-
-  <% f.fields_for :user do |u| %>  
-    <%= u.label :username %>
-    <%= u.text_field :username, { placeholder: "Username"} %> <br>
-  <% end %> 
-
-
-  <%= f.label :firstname %>
-  <%= f.text_field :firstname, { placeholder: "First Name"} %> <br>
-  <%= f.label :lastname %>
-  <%= f.text_field :lastname, { placeholder: "Last Name"} %> <br>
-  <%= f.label :email %>
-  <%= f.text_field :email, { placeholder: "Email"} %> <br>
-  <%= f.file_field :photo %> <br>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-
-<p> Profile Picture </p>
-<%= image_tag @profile.photo.url(:thumb) %>
-
-
+  <br>
+  <span id="button6" class="custom_button"><%= link_to 'Back', posts_path %></span>
+</div>
 

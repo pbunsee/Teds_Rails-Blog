@@ -10,37 +10,62 @@ main {
 
 .post {
   margin: 10px;
-  padding: 15px;
+  padding: 12px;
   color: rgb(0, 0, 0);
-  background: rgb(230, 240, 230);
+  background: rgba(255, 255, 255, 0.7);
 }
 
-.post-body {
+#content-layout {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.list-post-title {
+  padding: 10px 0 12px 0;
+  position: relative;
+  z-index: 9999;
+}
+
+.list-post-title a:active {
+  color: rgb(46, 46, 0);
+}
+ 
+.list-post-title a:link {
+  color: rgb(46, 46, 0);
+}
+
+.list-post-title a:hover {
+  color: rgb(46, 46, 0);
+}
+ 
+.list-post-title a:visited {
+  color: rgb(46, 46, 0);
+}
+
+.list-post-body {
+  position: relative;
+  z-index: 9999;
   padding: 10px 0 12px 0;
 }
 
-.post-attribution {
+.list-post-attribution {
   font-size: 0.5em;
 }
 
 textarea {
-  width: 550px;
+  width: 850px;
   height: 180px;
 }
- 
+
+#post-body {
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 1%;
+}
+
 #post_title {
   width: 550px;
   margin-bottom: 10px;
   margin-left: 1%;
 }
-
-#post-body {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-left: 1%;
-  -moz-box-shadow: 0px 0px 2px #000000;
-  -webkit-box-shadow: 0px 0px 2px #000000;
-  box-shadow: 0px 0px 2px #000000;
-  opacity: 0.85;
-}
-

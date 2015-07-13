@@ -10,9 +10,6 @@ class UsersController < ApplicationController
 
   def create
     if params[:user][:password] == params[:password_confirmation]
-      #puts "create #{params[:user][:firstname]}"
-      #puts "create #{params[:user][:lastname]}"
-      #puts "create #{params[:user][:email]}"
       puts "create params[:user][:username]  #{params[:user][:username]}"
       puts "create params[:user][:username]  #{params[:user][:password]}"
       puts "create params[:password_confirmation]  #{params[:password_confirmation]}"
@@ -27,7 +24,7 @@ class UsersController < ApplicationController
       @profile = Profile.create(user_hash)
       #need to change this to something like current_user.profile.create
       puts " ahahahahahahahaha Profile.find(@profile.id) #{Profile.find(@profile.id)}"
-      flash[:alert] = "Created User #{@user.username}"
+      flash[:notice] = "Created User #{@user.username}"
       redirect_to edit_user_profile_path(current_user, @profile)
     else
       flash[:alert] = "Confirmation password does not match password"
@@ -40,7 +37,7 @@ class UsersController < ApplicationController
     puts "show params.inspect #{params.inspect}"
     puts "show params[:id]  #{params[:id]}"
     @user = User.find(params[:id])
-    @profile = User.find(@user.id).profile
+    @profile = Profile.where(user_id: @user.id).first
     puts "show profile params.inspect #{@profile.inspect}" 
     puts "show profile @profile.firstname:  #{@profile.firstname}"
     puts "show profile @profile.lastname:  #{@profile.lastname}"
@@ -49,45 +46,41 @@ class UsersController < ApplicationController
     puts "show @user.password:  #{@user.password}"
     puts "users_path: #{users_path}"
     puts "user_path: #{user_path}"
-    flash[:alert] = "User #{@user.id} - show action"
+    flash[:notice] = "User #{@user.id} details"
   end
 
   def edit
     @user = User.find(params[:id])
-    #puts "edit @user.firstname:  #{@user.firstname}"
-    #puts "edit @user.lastname:  #{@user.lastname}"
-    #puts "edit @user.email:  #{@user.email}"
     puts "edit @user.username:  #{@user.username}"
     puts "edit @user.password:  #{@user.password}"
     puts "users_path: #{users_path}"
     puts "user_path: #{user_path}"
-    flash[:alert] = "User #{@user.id} - edit action"
+    flash[:notice] = "User #{@user.username} edited"
   end
 
   def destroy
+    # Allow the user to de-activate their account, hard delete must only be for admin
     @user = User.find(params[:id])
-    #puts "destroy @user.firstname:  #{@user.firstname}"
-    #puts "destroy @user.lastname:  #{@user.lastname}"
-    #puts "destroy @user.email:  #{@user.email}"
     puts "destroy @user.username:  #{@user.username}"
     puts "destroy @user.password:  #{@user.password}"
-    flash[:alert] = "User #{@user.id} - destroy action"
-    @user.destroy
-    #session[:user_id] = nil  - allow the user to de-activate their account, hard delete must only be for admin
+    flash[:alert] = "User profile #{@user.username} de-activated"
+    #@user.destroy
+    @profile = User.find(@user.id).profile
+    puts "BEFORE UPDATE @profile.inspect #{@profile.inspect}"
+    profile_flux_hash = {:activated => false}
+    @profile.update profile_flux_hash
+    puts "AFTER UPDATE @profile.inspect #{@profile.inspect}"
     redirect_to users_path
   end
 
   def update
     @user = User.find(params[:id])
-    #puts "update @user.firstname:  #{@user.firstname}"
-    #puts "update @user.lastname:  #{@user.lastname}"
-    #puts "update @user.email:  #{@user.email}"
     puts "update @user.username:  #{@user.username}"
     puts "update @user.password:  #{@user.password}"
     puts "users_path: #{users_path}"
     puts "user_path: #{user_path}"
     @user.update params[:user]
-    flash[:alert] = "User #{@user.id} - update action"
+    flash[:notice] = "User #{@user.username} updated"
     redirect_to edit_user_path
   end
 

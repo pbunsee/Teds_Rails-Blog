@@ -2,6 +2,58 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+.custom_button a {
+  color: rgb(255, 255, 255);
+}
+
+.custom_button {
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  font-family: Arial;
+  color: rgb(255, 255, 255);
+  background: #6a9aba;
+  padding: 5px 14px 9px 14px;
+  border: solid #1f628d 0px;
+  margin-top: 5px;
+  font-size: 1.1em!important;
+  font-family: 'Roboto Slab', serif;
+}
+
+.custom_button input[type=submit]:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+}
+
+.custom_button:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+}
+
+#button1 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  float: left;
+}
+
+#button2 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  float: right;
+}
+
+#button1 a,  #button2 a, #button3 a, #button4 a, #button5 a, #button6 a {
+  text-decoration: none;
+}
+
 canvas {
   position: absolute;
   top: 0;
@@ -43,13 +95,92 @@ header input[type="submit"] {
 }
 
 main {
-  /*padding: 5px 20px 15px 20px;*/
   font-family: 'Roboto Slab', serif;
 }
 
-#signup {
+#menu_options {
   float: left;
   color: rgb(255, 255, 255);
+  padding: 15px 10px 25px 10px;
+}
+
+#menu_option_1 {
+  float: left;
+  padding-right: 20px;
+}
+ 
+#menu_option_1 a:active {
+  color: rgb(255, 255, 255);
+}
+ 
+#menu_option_1 a:link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+#menu_option_1 a:hover {
+  color: rgb(51, 204, 51);
+}
+ 
+#menu_option_1 a:visited{
+  color: rgb(51, 204, 51);
+}
+
+#menu_option_2 {
+  float: right;
+}
+ 
+#menu_option_2 a:active {
+  color: rgb(255, 255, 255);
+}
+ 
+#menu_option_2 a:link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+#menu_option_2 a:hover {
+  color: rgb(51, 204, 51);
+}
+ 
+#menu_option_2 a:visited{
+  color: rgb(51, 204, 51);
+}
+
+#menu_option_3 {
+  float: left;
+  padding-right: 20px;
+}
+ 
+#menu_option_3 a:active {
+  color: rgb(255, 255, 255);
+}
+ 
+#menu_option_3 a:link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+#menu_option_3 a:hover {
+  color: rgb(51, 204, 51);
+}
+ 
+#menu_option_3 a:visited{
+  color: rgb(51, 204, 51);
+}
+
+#menu_option_3 {
+  float: right;
+}
+ 
+#user_options {
+  float: right;
+}
+
+#signup {
+  color: rgb(255, 255, 255);
+  float: right;
+  padding: 15px 10px 15px 10px;
 }
  
 #signup a:active {
@@ -58,6 +189,7 @@ main {
  
 #signup a:link {
   color: rgb(255, 255, 255);
+  text-decoration: none;
 }
 
 #signup a:hover {
@@ -68,17 +200,41 @@ main {
   color: rgb(51, 204, 51);
 }
 
-#doLogin {
+#doLogout {
+  color: rgb(255, 255, 255);
   float: right;
+  padding: 15px 10px 15px 10px;
+}
+
+#doLogout a:active {
+  color: rgb(255, 255, 255);
+}
+ 
+#doLogout a:link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+#doLogout a:hover {
+  color: rgb(51, 204, 51);
+}
+ 
+#doLogout a:visited {
+  color: rgb(51, 204, 51);
 }
 
 #outerNav {
   width: 100%;
   margin-top: 0;
   font-family: 'Roboto Slab', serif;
-  color: black; 
+  /*color: black; */
 }
 
 body {
-  background-color: rgb(235, 245, 255);
+  /*background-color: rgb(235, 245, 255);*/
+  position: relative;
+  background-image: url("/assets/CreativeTail-20-Stone-Backgrounds/Stone9.jpg");
+  background-repeat: repeat;
+  z-index: -1;
 }
+

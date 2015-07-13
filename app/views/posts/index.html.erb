@@ -1,10 +1,9 @@
- <h2>List of all posts</h2>
- <div>
-    <%= link_to "Create new post", new_post_path %> <br><br>
+ <h1>List of all posts</h1>
+ 
+ <div id="content-layout">
+   <% @posts.each do |post| %>
+     <%= render post %>
+   <% end %>
  </div>
 
- <% @posts.each do |post| %>
-   <%= link_to post.title, post_path(post.id) %> <br>
-   <div id="post-body"><%= post.body %> <br></div>
- <% end %>
 

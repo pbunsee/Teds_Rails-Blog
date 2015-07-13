@@ -1,25 +1,39 @@
 
 <header>
    <div id="outerNav">
-   <% if !current_user %>
-     <div id="signup">
-       <%= link_to "Sign Up", new_user_path, method: :get %>
+     <div id="icon">
      </div>
-   <% end %>
-
-   <% if current_user %>
-     <%= link_to "Sign Out", '/logout', method: :delete %>
-   <% else %>
-      <div id="doLogin">
-        <%= form_tag('/sessions', :html => {:id => 'form-signin', :class => 'form-signin'}) do %>
-          <span><%= text_field_tag :username, nil, placeholder: "Username" %></span> 
-          <span><%= password_field_tag :password, nil, placeholder: "Password" %></span>
-          <%= submit_tag "Log In" %>
-        <% end %>
-      </div>
-   <% end %> 
-
-
+     <div id="user_options">
+       <% if !current_user %>
+         <span id="doLogin"> 
+           <%= form_tag('/sessions', :html => {:id => 'form-signin', :class => 'form-signin'}) do %>
+             <span><%= text_field_tag :username, nil, placeholder: "Username" %></span> 
+             <span><%= password_field_tag :password, nil, placeholder: "Password" %></span>
+             <%= submit_tag "Log In" %>
+           <% end %>
+         </span>
+         <span id="signup">
+           <%= link_to "Sign Up", new_user_path, method: :get %>
+         </span>
+       <% else %>
+          <div id="menu_options">
+            <span id="menu_option_1">
+              <%= link_to "Manage Account", edit_user_profile_path(current_user.id, current_user.profile.id) %>    
+            </span>
+            <span id="menu_option_2">
+              <%= link_to "View posts", posts_path %>   
+            </span>
+            <span id="menu_option_3">
+              <%= link_to "Create new post", new_post_path %>   
+            </span>
+          </div>
+          <span id="doLogout">
+            <%= link_to "Sign Out", '/logout', method: :delete %>
+          </span>
+       <% end %> 
+     </div>
+  
+  
    <% if flash[:notice] %>
      <div id="flash_msg">
        <%= flash[:notice] %>
@@ -32,3 +46,4 @@
    <% end %>
    </div>
 </header>
+

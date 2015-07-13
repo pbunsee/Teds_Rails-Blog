@@ -1,15 +1,15 @@
 <article class="post">
-   <h2>
-     <%= link_to post.title, post_path(post) %>
-   </h2>
-   <p class='post-body'>
+   <h3>
+    <span class='list-post-title'><%= link_to post.title, post_path(post) %></span>
+   </h3>
+   <p class='list-post-body'>
      <% if local_assigns.fetch(:truncate_post, false) %>
        <%= truncate post.body, length: 200 %>
      <% else %>
        <%= post.body %>
      <% end %>
    </p>
-   <p class='post-attribution'>
+   <p class='list-post-attribution'>
      Posted by <%= post.user.username %>
      at <%= post.created_at %>
 

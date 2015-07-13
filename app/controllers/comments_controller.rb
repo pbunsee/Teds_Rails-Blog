@@ -19,10 +19,11 @@ class CommentsController < ApplicationController
     if current_user
       @comment = current_user.comments.create params[:comment]
       flash[:notice] = "Saved Comment"
+      redirect_to post_path(@comment.post)
     else
       flash[:alert] = "Please login to add comment"
+      redirect_to post_path(params[:comment][:post_id])
     end
-    redirect_to post_path(@comment.post)
   end
 
   def destroy

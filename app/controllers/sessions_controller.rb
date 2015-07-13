@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    #session.clear
     username = params[:username]
     password = params[:password]
 
