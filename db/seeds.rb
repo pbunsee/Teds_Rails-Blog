@@ -1,39 +1,34 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-# ruby encoding: utf-8
-  User.create(username: 'jimb', password: 'test')
-  User.create(username: 'bobc', password: 'test')
-  User.create(username: 'tommy', password: 'test')
-  User.create(username: 'treehouse', password: 'test')
-  User.create(username: 'ericT', password: 'test')
-  User.create(username: 'rhonert', password: 'test')
-  User.create(username: 'herbie_mit', password: 'test')
-
-  Profile.create(firstname: 'Jim', lastname: 'Bob', email: 'test@test.com', user_id: 1, activated: true)
-  Profile.create(firstname: 'Bob', lastname: 'Smith', email: 'test@test.com', user_id: 2, activated: true)
-  Profile.create(firstname: 'Tommy', lastname: 'Lee Jones', email: 'test@test.com', user_id: 3, activated: true)
-  Profile.create(firstname: 'Henry', lastname: 'Jones', email: 'test@test.com', user_id: 4, activated: false)
-  Profile.create(firstname: 'Eric', lastname: 'Thomas', email: 'test@test.com', user_id: 5, activated: true)
-  Profile.create(firstname: 'Rhonda', lastname: 'Jones', email: 'test@test.com', user_id: 6, activated: true)
-  Profile.create(firstname: 'Herbie', lastname: 'Andrews', email: 'test@test.com', user_id: 7, activated: true)
-
-  Post.create(title: 'herbie_mit says...', body: 'abc def ghi jkl mno pqr stu vwx yz', user_id: 7)
-  Post.create(title: 'Tommy says...', body: 'abc def ghi jkl mno pqr stu vwx yz', user_id: 3)
-  Post.create(title: 'Henry says...', body: 'abc def ghi jkl mno pqr stu vwx yz', user_id: 4)
-  Post.create(title: 'herbie_mit has more to say...', body: 'abc def ghi jkl mno pqr stu vwx yz', user_id: 7)
-  Post.create(title: 'Eric says...', body: 'abc def ghi jkl mno pqr stu vwx yz', user_id: 5)
-  Post.create(title: 'Rhonda says...', body: 'abc def ghi jkl mno pqr stu vwx yz', user_id: 6)
-
-  Comment.create(body: 'comment one about this jkl mno pqr stu vwx yz', user_id: 7, post_id: 1)
-  Comment.create(body: 'comment two about this jkl mno pqr stu vwx yz', user_id: 7, post_id: 1)
-  Comment.create(body: 'comment three about this jkl mno pqr stu vwx yz', user_id: 7, post_id: 1)
-  Comment.create(body: 'comment four about this jkl mno pqr stu vwx yz', user_id: 7, post_id: 1)
-  Comment.create(body: 'comment five about this jkl mno pqr stu vwx yz', user_id: 7, post_id: 1)
-  Comment.create(body: 'comment six about this jkl mno pqr stu vwx yz', user_id: 7, post_id: 1)
-
+Comment.create!([
+  {body: "Do you know what program those maps are created with?", user_id: 2, post_id: 3},
+  {body: "Maybe R? I am not sure.", user_id: 1, post_id: 3},
+  {body: " Great tutorial!", user_id: 2, post_id: 1}
+])
+Post.create!([
+  {body: "Build a Real Time web app in Node.js , Angular.js, MongoDB", title: "Learn Node.js", user_id: 1, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil},
+  {body: "John Tukey coined the term ANOVA.", title: "Fact of the day", user_id: 1, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil},
+  {body: "Minimalist maps http://i.imgur.com/iOIaAJN.png", title: "Minimalism in graphic design", user_id: 1, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil},
+  {body: "As a private citizen, as long as nobody ever tells me that I can't run my own private e-mail server, we're good.", title: "Privacy laws", user_id: 7, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil},
+  {body: "Economists say a slower-growing China, over the long haul, could be a plus for the U.S. http://on.wsj.com/1QnPag2 ", title: "WSJ News Graphics has an interesting article...", user_id: 1, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil},
+  {body: "New York Times graphics are cool! Which European countries accept their share of migrants based on today's proposed quota? http://www.nytimes.com/interactive/2015/09/04/world/europe/europe-refugee-distribution.html … ", title: "Cool graphics!", user_id: 2, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil},
+  {body: "D3.js", title: "Test your SVG skills", user_id: 2, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil}
+])
+User.create!([
+  {username: "pbunsee", password: "Ishfaaq2"},
+  {username: "bobc", password: "test"},
+  {username: "tommy", password: "test"},
+  {username: "treehouse", password: "test"},
+  {username: "ericT", password: "test"},
+  {username: "rhonert", password: "test"},
+  {username: "herbie_mit", password: "test"},
+  {username: "silvertree", password: "test"},
+  {username: "terryc", password: "test"},
+  {username: "herbie3", password: "tewq"},
+  {username: "freddy_mercury", password: "test"},
+  {username: "ziggy", password: "test"},
+  {username: "ren", password: "test"}
+])
+Profile.create!([
+  {firstname: "Pranesha", lastname: "Bunsee", email: "pbunsee@gmail.com", activated: true, user_id: 1, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil},
+  {firstname: "Bob Henry", lastname: "Smith", email: "test@test.com", activated: true, user_id: 2, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil},
+  {firstname: "Herbie", lastname: "Andrews", email: "test@test.com", activated: true, user_id: 7, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil}
+])

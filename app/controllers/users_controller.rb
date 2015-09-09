@@ -10,27 +10,33 @@ class UsersController < ApplicationController
   end
 
   def create
-    if params[:user][:password] == params[:password_confirmation]
-      puts "create params[:user][:username]  #{params[:user][:username]}"
-      puts "create params[:user][:username]  #{params[:user][:password]}"
-      puts "create params[:password_confirmation]  #{params[:password_confirmation]}"
-      @user = User.create params[:user]
-      session[:user_id] = @user.id
-      puts "session[:user_id] value is: #{session[:user_id]}"
-      puts "@user.id value is: #{@user.id}"
-      user_hash = {:user_id => @user.id}
-      puts "user_hash user_id value is : #{user_hash[:user_id]}"
-      puts "user_hash value is : #{user_hash}"
-      @user.build_profile
-      @profile = Profile.create(user_hash)
-      #need to change this to something like current_user.profile.create
-      puts " ahahahahahahahaha Profile.find(@profile.id) #{Profile.find(@profile.id)}"
-      flash[:notice] = "Created User #{@user.username}"
-      redirect_to edit_user_profile_path(current_user, @profile)
-    else
-      flash[:alert] = "Confirmation password does not match password"
-      redirect_to new_user_path
-    end
+    #if params[:user][:password] == params[:password_confirmation]
+      #@user = User.create params[:user]
+      #user_for_db = user_params.delete :password_confirmation
+      puts " user_params.inspect  is  #{user_params.inspect} "
+      user_for_db_hash = {:username => user_params[:username], :password => user_params[:password]}
+      @user = User.new(user_for_db_hash)
+      if @user.save
+        # auto sign-in the user after sign-up
+        session[:user_id] = @user.id
+        puts " session[:user_id] is  #{session[:user_id] }"
+
+      puts "@user #{@user}  and @user.id #{@user.id}" 
+      puts "current_user is #{current_user}"
+      current_user.build_profile({:user_id => @user.id})
+      current_user.profile.create
+        # Create empty user_profile
+        @user.build_profile
+        @profile = Profile.create({:user_id => @user.id})
+        #need to change this to something like current_user.profile.create
+
+        flash[:notice] = "Created User #{@user.username}"
+        redirect_to edit_user_profile_path(current_user, @profile)
+      else
+        flash[:alert] = "Something went wrong"
+        redirect_to new_user_path
+      end
+    #end
   end
 
   def show
@@ -86,4 +92,10 @@ class UsersController < ApplicationController
     redirect_to edit_user_path
   end
 
+  def user_params
+    params.require(:user).permit(:username,
+                                 :password,
+                                 :password_confirmation
+                                 )
+  end
 end
