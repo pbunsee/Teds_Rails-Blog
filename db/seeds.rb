@@ -13,7 +13,7 @@ Post.create!([
   {body: "D3.js", title: "Test your SVG skills", user_id: 2, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil}
 ])
 User.create!([
-  {username: "pbunsee", password: "Ishfaaq2"},
+  {username: "pbunsee", password: "test"},
   {username: "bobc", password: "test"},
   {username: "tommy", password: "test"},
   {username: "treehouse", password: "test"},
