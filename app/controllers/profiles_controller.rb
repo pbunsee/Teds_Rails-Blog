@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = Profile.where("user_id = #{params[:id]}")
+    @profile = Profile.where("user_id = #{params[:id]}").first
 
     #pull the image from the specified url and set the user's avatar
     fname = params[:profile][:firstname]
@@ -27,7 +27,15 @@ class ProfilesController < ApplicationController
     email = params[:profile][:email]
     pic = params[:photo_url]
     new_profile_hash = {:firstname => fname, :lastname => lname, :email => email, :photo => pic}
-    @profile.update!(new_profile_hash)  #not working
+    #@profile.update new_profile_hash 
+    @profile.update profile_params
+    if @profile.valid?
+      @response_type = 'SUCCESS'
+      @response = 'Profile updated.'
+    else
+      @response_type = 'ERROR'
+      @response = 'There was an error with your submission'
+    end
     redirect_to edit_user_profile_path
   end
 
@@ -38,4 +46,13 @@ class ProfilesController < ApplicationController
     redirect_to edit_user_profile_path
   end
 
+  def profile_params
+    params.require(:profile).permit(:id,
+                                    :user_id,
+                                    :firstname,
+                                    :lastname,
+                                    :email,
+                                    :photo
+                                   )
+  end
 end
